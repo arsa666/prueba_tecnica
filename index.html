@@ -25,11 +25,7 @@
 				{ "bSearchable": false }
 				],
 				
-            });
-			
-			/*var mytable=$('#employees_table').dataTable();*/
-
-			//console.log($('#employees_table').dataTable());
+			});
 			//console.log(mytable);
 
 			$('input[type=radio][name=busqueda]').change(function() {
@@ -50,29 +46,27 @@
 
 		});
 
-		$(document).ready(function(){
-
-			var serverResponse = [{"Nombre":"Cala","Ocupacion":"Electrico","numero":213121},{"Nombre":"Laka","Ocupacion":"Tecnico","numero":213121},{"Nombre":"Omar","Ocupacion":"Pintor","numero":213121},{"Nombre":"Otro","Ocupacion":"Otro","numero":213121},{"Nombre":"Otro2","Ocupacion":"Otro2","numero":213121}];
-			//var obj = jQuery.parseJSON(serverResponse);
-			//console.log(serverResponse);
-
-			$.each(serverResponse, function(i, item){
-				/*$('#table-body').append('<tr>');
-				$('#table-body').append('<td>'+item.Nombre+'</td>');
-				$('#table-body').append('<td>'+item.Ocupacion+'</td>');
-				$('#table-body').append('<td>'+item.numero+'</td>');
-				$('#table-body').append('</tr>');*/
-				$('#employees_table').dataTable().fnAddData([
-					item.Nombre,
-					item.Ocupacion,
-					item.numero
-					]);
-				console.log(item);
-			});
-
-
-		});
 	</script>
+	<script type="text/javascript">
+		(function() {
+		  var API = "u.json"; //archivo local con los datos copiados del servidor
+		  $.getJSON( API, {
+		  	format: "json"
+		  })
+		  .done(function( data ) {
+		  	$.each(data, function(i, item){
+		  		$('#employees_table').dataTable().fnAddData([
+		  			item.Nombre,
+		  			item.Ocupacion,
+		  			item.numero
+		  			]);
+				//console.log(item);
+			});
+		  });
+		})();
+
+	</script>
+
 </head>
 <body>
 	<div id="container">

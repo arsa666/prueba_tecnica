@@ -1,0 +1,25 @@
+body{
+	font-family: 'Roboto', sans-serif;
+	font-size: 13pt;
+}
+
+#container{
+	width: 80vw;
+	margin: 20px auto;
+}
+
+#employees_table{
+	
+}
+
+.search_type{
+	float:right;
+}
+
+.dataTables_filter{
+	margin: 20px 0;
+}
+
+.dataTables_filter input{
+	font-size: 120%;
+}
